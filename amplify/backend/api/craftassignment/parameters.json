@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "craftassignment",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authcraftassignmentfd1778f9",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

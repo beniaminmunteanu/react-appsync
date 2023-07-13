@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-craftassignment-dev-120959-authRole",
+      "UnauthRoleArn": "arn:aws:iam::771771052292:role/amplify-craftassignment-dev-120959-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::771771052292:role/amplify-craftassignment-dev-120959-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-craftassignment-dev-120959-deployment",
+      "UnauthRoleName": "amplify-craftassignment-dev-120959-unauthRole",
+      "StackName": "amplify-craftassignment-dev-120959",
+      "StackId": "arn:aws:cloudformation:us-east-1:771771052292:stack/amplify-craftassignment-dev-120959/e277afc0-2093-11ee-9bef-0e333bc14ff7",
+      "AmplifyAppId": "d3i5midd9ksndc"
+    },
+    "categories": {
+      "auth": {
+        "craftassignmentfd1778f9": {}
+      },
+      "api": {
+        "craftassignment": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "craftassignment",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authcraftassignmentfd1778f9"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 7,
+        "apiKeyExpirationDate": "2023-07-19T09:34:07.000Z",
+        "keyDescription": ""
+      }
+    ]
+  }
+}
