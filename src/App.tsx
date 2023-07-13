@@ -5,8 +5,8 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { createTask, deleteTask, updateTask } from './graphql/mutations';
 import { listTasks } from './graphql/queries';
-import { onCreateTask, onDeleteTask } from './graphql/subscriptions';
-import { OnCreateTaskSubscription, OnDeleteTaskSubscription } from './API';
+import { onCreateTask, onDeleteTask, onUpdateTask } from './graphql/subscriptions';
+import { OnCreateTaskSubscription, OnDeleteTaskSubscription, OnUpdateTaskSubscription } from './API';
 
 import { GraphQLSubscription } from '@aws-amplify/api';
 
@@ -56,8 +56,18 @@ function App() {
       graphqlOperation(onDeleteTask)
     ).subscribe({
       next: ({ value, provider }) => {
-        toast.warn('A task was deleted from the list');
+        toast.warn('A task was deleted from the data source');
         setTaskData((prevTaskList) => prevTaskList.filter((t) => t.id !== value.data?.onDeleteTask!.id));
+      },
+      error: (e) => console.warn(e),
+    });
+
+    const onEditTaskSubscription = API.graphql<GraphQLSubscription<OnUpdateTaskSubscription>>(
+      graphqlOperation(onUpdateTask)
+    ).subscribe({
+      next: ({ value, provider }) => {
+        toast.info('A task was edited in the data source');
+        setTaskData((prevTaskList) => prevTaskList.map((t) => t.id !== value.data?.onUpdateTask!.id ? t : value.data?.onUpdateTask));
       },
       error: (e) => console.warn(e),
     });
@@ -65,6 +75,7 @@ function App() {
     return () => {
       onCreateTaskSubscription.unsubscribe();
       onDeleteTaskSubscription.unsubscribe();
+      onEditTaskSubscription.unsubscribe()
     };
   },[])
 
@@ -135,7 +146,6 @@ function App() {
       setEditTaskId('');
       setEditTitle('');
       setEditDescription('');
-      toast.info('A task was modified');
 
     } catch (e) {
       console.log(e);
