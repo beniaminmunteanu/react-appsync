@@ -11,25 +11,16 @@ import { OnCreateTaskSubscription, OnDeleteTaskSubscription } from './API';
 import { GraphQLSubscription } from '@aws-amplify/api';
 
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
+import { FaEdit, FaTrash } from 'react-icons/fa';
+import logo from './assets/craft_og.png';
 
-  import './App.css';
-
-
-  import { FaEdit, FaTrash } from 'react-icons/fa';
-
-
-  import logo from './assets/craft_og.png';
-
-
-
-
-
-  interface Task {
-    id: string;
-    title: string;
-    description: string;
-  }
+interface Task {
+  id: string;
+  title: string;
+  description: string;
+}
 
 
 function App() {
