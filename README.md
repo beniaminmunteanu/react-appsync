@@ -10,6 +10,8 @@ This project is a prototype for levereging cloud services for a simple data sync
 
 - :repeat: **Supports Incremental Synchronization**: DynamoDB Streams captures changes made to the tasks, and AWS AppSync's GraphQL subscriptions deliver those changes to the clients. Clients can retrieve only the data records that were updated since the previous synchronization operation, achieving incremental synchronization.
 
+- :closed_lock_with_key: Fully Implemented Authentication System: The solution includes a fully-fledged authentication system using AWS Amplify and AWS Cognito. Users can create accounts, log in, and perform token-based authentication for subsequent API calls. Email verification is enforced for added security.
+
 - :cloud: **Cloud Deployment with CI/CD**: The solution is deployed in the cloud using a CI/CD pipeline implemented with AWS Amplify Hosted Environments. This ensures that the latest version of the application is always available to users.
 
 ## Technologies Used :computer:
